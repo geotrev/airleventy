@@ -1,4 +1,13 @@
+[Settings]
+
 [build]
   base = ""
   publish = "_site"
-  command = "npx @11ty/eleventy"
+  command = "npm run build"
+  environment = { NODE_VERSION = "14.7.0", NPM_VERSION = "7.5.2" }
+
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.develop]
+  command = "npm run build"

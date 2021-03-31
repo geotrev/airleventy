@@ -1,0 +1,22 @@
+@use "reset";
+@use "variables";
+
+body {
+	font-family: monospace, sans-serif;
+	background-color: var(--background-color);
+}
+
+.content {
+	padding: 1.5rem;
+	max-width: var(--page-width);
+	margin: 0 auto;
+}
+
+h1 {
+	padding-bottom: 1rem;
+}
+
+.by {
+	font-size: 0.6rem;
+	color: var(--byline-color);
+}
