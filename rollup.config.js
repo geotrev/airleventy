@@ -7,6 +7,26 @@ import { nodeResolve } from "@rollup/plugin-node-resolve"
 import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 
+/**
+ * This is a simple build pipeline for JavaScript files. 
+ * 
+ * It works by checking for any `.js` files without a leading `_`
+ * in the name. If so, rollup processes the file using 
+ * the defined babel configuration and spits it out (folder 
+ * paths in tact) in the project's dist folder. 
+ *
+ * It's intended to be simple and get out of the way as much
+ * as possible. Unlike other front-end pipelines, this one
+ * does not associate file names to any particular layout
+ * or view. Developers have full control over which files
+ * get loaded by requiring them to add a script tag.
+ *
+ * Additionally, the npm scripts are set up to process
+ * scripts using terser for additional optimization when
+ * the build is in "production" mode (see `netlify.tml`
+ * and `package.json`).
+ */
+
 const terserPlugin = terser({
 	output: {
 		comments: (_, comment) => {
