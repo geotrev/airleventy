@@ -1,7 +1,13 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("./assets")
+	eleventyConfig.addWatchTarget("./assets/sass")
+	eleventyConfig.addWatchTarget("./assets/js")
 
-  return {
-    passthroughFileCopy: true,
-  }
+	eleventyConfig.addPassthroughCopy("./assets/dist")
+
+	eleventyConfig.addWatchTarget("./assets/img")
+	eleventyConfig.addPassthroughCopy("./assets/img")
+
+	return {
+		passthroughFileCopy: true,
+	}
 }
