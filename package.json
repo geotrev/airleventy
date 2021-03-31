@@ -13,7 +13,7 @@
 		"build:11ty": "eleventy",
 		"watch:11ty": "eleventy --serve"
 	},
-	"author": "Inasuma, Jupiter, Mars",
+	"author": "geotrev",
 	"license": "Unlicense",
 	"dependencies": {
 		"@11ty/eleventy": "^0.12.1",
