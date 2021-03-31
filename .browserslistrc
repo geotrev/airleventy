@@ -1,0 +1,8 @@
+# This should match autoprefixer.browsers in _config-prod.yml 
+
+edge >= 15
+firefox >= 54
+chrome >= 51
+safari >= 10
+ios >= 9
+not ie 11

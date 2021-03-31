@@ -1,10 +1,8 @@
 # Airleventy
 
-Inspired by [Possibly the Easiest Way to Run An SSG](https://css-tricks.com/possibly-the-easiest-way-to-run-an-ssg/).
+Build static websites with 11ty, Sass for CSS, and modern JavaScript.
 
-Write static websites. 11ty with minimal tooling extensions. Write with Sass & modern JS.
-
-Out of the box Netlify deploys. Includes mini CSS reset by Eric Meyer.
+Comes with a Netlify deploy config, but can be hosted anywhere.
 
 ## Increase your power levels
 
@@ -41,3 +39,12 @@ First, enable your Eleventy Skeleton repo on Netlify's interface.
 When prompted, clear the `build` and `publish` fields (that's what your `netlify.toml` is for). Then set your deploy branch (e.g., `main`).
 
 Now each time you push to your deploy branch you'll also deploy your most recent changes. 🎉
+
+## Writing JavaScript
+
+Writing JS is pretty straightforward, but has prescriptions on file structure & naming:
+
+-   All scripts are processed through rollup with a basic Babel configuration using `preset-env`. Configure this as you please.
+-   Any file with a preceding underscore is treated as a module, and not copied as a direct file output.
+-   Any file without an underscore is conversely treated as an asset file and copied over.
+-   All file paths are preserved. Meaning if you create `assets/js/hello/world/script.js`, the output becomes `assets/dist/js/hello/world/script.js`.

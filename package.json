@@ -6,10 +6,14 @@
 	"main": "index.js",
 	"scripts": {
 		"format": "prettier --write '**/*.js' '**/*.scss' '**/*.html'",
-		"build": "npm-run-all build:*",
 		"watch": "npm-run-all --parallel watch:*",
-		"build:sass": "sass --style=compressed assets/sass/styles.scss:assets/dist/styles.css",
-		"watch:sass": "sass --watch assets/sass/styles.scss:assets/dist/styles.css",
+		"build": "npm-run-all build-dev:scripts build:*",
+		"build-prod": "npm-run-all build-prod:scripts build:*",
+		"build:sass": "sass --style=compressed assets/sass/styles.scss:assets/dist/css/styles.css",
+		"watch:sass": "sass --watch assets/sass/styles.scss:assets/dist/css/styles.css",
+		"build-dev:scripts": "rollup -c",
+		"build-prod:scripts": "BABEL_ENV=production rollup -c",
+		"watch:scripts": "npm run build-dev:scripts -- -w",
 		"build:11ty": "eleventy",
 		"watch:11ty": "eleventy --serve"
 	},
@@ -17,7 +21,15 @@
 	"license": "Unlicense",
 	"dependencies": {
 		"@11ty/eleventy": "^0.12.1",
+		"@babel/core": "^7.13.14",
+		"@babel/preset-env": "^7.13.12",
+		"@rollup/plugin-babel": "^5.3.0",
+		"@rollup/plugin-commonjs": "^18.0.0",
+		"@rollup/plugin-node-resolve": "^11.2.1",
+		"glob": "^7.1.6",
 		"npm-run-all": "^4.1.5",
+		"rollup": "^2.44.0",
+		"rollup-plugin-terser": "^7.0.2",
 		"sass": "^1.32.8"
 	},
 	"devDependencies": {
