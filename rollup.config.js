@@ -23,8 +23,6 @@ const absolutePath = (dirPath) => path.resolve(__dirname, dirPath)
 const scriptFiles = glob.sync(absolutePath("assets/js/**/!(_)*.js"))
 const scriptsTarget = "assets/dist/js/"
 
-console.log("script files detected:", scriptFiles)
-
 const inputs = scriptFiles.reduce((files, input) => {
 	const parts = input.split("assets/js/")
 	const fileKey = parts[parts.length - 1]
@@ -38,8 +36,6 @@ const outputs = Object.keys(inputs).reduce((files, file) => {
 	const outputPath = parts.slice(pathIndex).join("/")
 	return { [file]: absolutePath(scriptsTarget + outputPath), ...files }
 }, {})
-
-console.log("outputs:", outputs)
 
 const bundles = Object.keys(inputs).map((key) => {
 	const prodEnv = process.env.BABEL_ENV === "production"
