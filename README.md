@@ -6,9 +6,9 @@ Comes with a Netlify deploy config, but can be hosted anywhere.
 
 ## Increase your power levels
 
-5. [Add favicons/device icons](https://www.favicon-generator.org/)
-6. [Add a sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
-7. [Configure eleventy](https://www.11ty.dev/docs/watch-serve/)
+1. [Add favicons/device icons](https://www.favicon-generator.org/)
+2. [Add a sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
+3. [Configure eleventy](https://www.11ty.dev/docs/watch-serve/)
 
 ## Setup
 
