@@ -30,6 +30,12 @@ $ npm run watch
 $ npm run build
 ```
 
+Or build production ready assets:
+
+```sh
+$ npm run build-prod
+```
+
 There are also a slew of individual commands to run individual build processes such as styles, scripts, etc.
 
 ## Netlify
