@@ -12,21 +12,27 @@ Out of the box Netlify deploys. Includes mini CSS reset by Eric Meyer.
 6. [Add a sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
 7. [Configure eleventy](https://www.11ty.dev/docs/watch-serve/)
 
-## Commands
+## Setup
 
-These commands assume you're in a unix environment, but they should work anywhere `npx`/`npm` is available.
+```shell
+$ npm i
+```
+
+## Commands
 
 ### Develop
 
 ```sh
-$ npx @11ty/eleventy --serve
+$ npm run watch
 ```
 
 ### Build
 
 ```sh
-$ npx @11ty/eleventy
+$ npm run build
 ```
+
+There are also a slew of individual commands to run individual build processes such as styles, scripts, etc.
 
 ## Netlify
 
