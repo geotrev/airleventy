@@ -46,10 +46,10 @@ When prompted, clear the `build` and `publish` fields (that's what your `netlify
 
 Now each time you push to your deploy branch you'll also deploy your most recent changes. 🎉
 
-## Writing JavaScript
+## JavaScript
 
-Writing JS is pretty straightforward, but has prescriptions on file structure & naming:
+Adding JS is pretty straightforward, but has prescriptions on file structure & naming:
 
 -   All scripts are processed through rollup with a basic Babel configuration using `preset-env`. Configure this and the accompanying `.browserslistrc` as you please.
--   Any file with a preceding underscore is treated as a module, and not copied as a direct file output.
--   Any file without an underscore is conversely treated as an asset file and copied over, including its original file path under `assets/js/`.
+-   Any file _with_ an underscore prefix is treated as a non-asset module, and isn't copied over as part of the file output.
+-   Any file _without_ an underscore is conversely treated as an asset file and copied over as an asset, including its original file path under `assets/js/`.
