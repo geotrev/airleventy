@@ -6,9 +6,9 @@ Comes with a Netlify deploy config, but can be hosted anywhere.
 
 ## Increase your power levels
 
-5. [Add favicons/device icons](https://www.favicon-generator.org/)
-6. [Add a sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
-7. [Configure eleventy](https://www.11ty.dev/docs/watch-serve/)
+1. [Add favicons/device icons](https://www.favicon-generator.org/)
+2. [Add a sitemap](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
+3. [Configure eleventy](https://www.11ty.dev/docs/watch-serve/)
 
 ## Setup
 
@@ -30,6 +30,12 @@ $ npm run watch
 $ npm run build
 ```
 
+Or build production ready assets:
+
+```sh
+$ npm run build-prod
+```
+
 There are also a slew of individual commands to run individual build processes such as styles, scripts, etc.
 
 ## Netlify
@@ -40,10 +46,10 @@ When prompted, clear the `build` and `publish` fields (that's what your `netlify
 
 Now each time you push to your deploy branch you'll also deploy your most recent changes. 🎉
 
-## Writing JavaScript
+## JavaScript
 
-Writing JS is pretty straightforward, but has prescriptions on file structure & naming:
+Adding JS is pretty straightforward, but has prescriptions on file structure & naming:
 
--   All scripts are processed through rollup with a basic Babel configuration using `preset-env`. Configure this and the accompanying `.browserslistrc` as you please.
--   Any file with a preceding underscore is treated as a module, and not copied as a direct file output.
--   Any file without an underscore is conversely treated as an asset file and copied over, including its original file path under `assets/js/`.
+-   All JS is processed through rollup with a basic Babel configuration using `preset-env`. Configure this and the accompanying `.browserslistrc` as you please.
+-   Any JS file _without_ an underscore prefix is treated as an asset (included in file output). Its file path is mirrored in the output.
+-   Any JS file _with_ an underscore prefix is treated as a non-asset module (no output file).

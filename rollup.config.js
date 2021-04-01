@@ -8,12 +8,12 @@ import babel from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 
 /**
- * This is a simple build pipeline for JavaScript files. 
- * 
+ * This is a simple build pipeline for JavaScript files.
+ *
  * It works by checking for any `.js` files without a leading `_`
- * in the name. If so, rollup processes the file using 
- * the defined babel configuration and spits it out (folder 
- * paths in tact) in the project's dist folder. 
+ * in the name. If so, rollup processes the file using
+ * the defined babel configuration and spits it out (folder
+ * paths in tact) in the project's dist folder.
  *
  * It's intended to be simple and get out of the way as much
  * as possible. Unlike other front-end pipelines, this one
@@ -49,7 +49,9 @@ const inputs = scriptFiles.reduce((files, input) => {
 	return { [fileKey]: absolutePath(input), ...files }
 }, {})
 
-const outputs = Object.keys(inputs).reduce((files, file) => {
+const inputPaths = Object.keys(inputs)
+
+const outputs = inputPaths.reduce((files, file) => {
 	const inputPath = inputs[file]
 	const parts = inputPath.split("/")
 	const pathIndex = parts.indexOf("js") + 1
@@ -57,7 +59,7 @@ const outputs = Object.keys(inputs).reduce((files, file) => {
 	return { [file]: absolutePath(scriptsTarget + outputPath), ...files }
 }, {})
 
-const bundles = Object.keys(inputs).map((key) => {
+const bundles = inputPaths.map((key) => {
 	const prodEnv = process.env.BABEL_ENV === "production"
 
 	const plugins = [
