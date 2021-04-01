@@ -16,7 +16,21 @@ h1 {
 	padding-bottom: 1rem;
 }
 
+p,
+ul {
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+
+ul {
+	padding-inline-start: 1rem;
+
+	li {
+		list-style: circle;
+	}
+}
+
 .by {
-	font-size: 0.6rem;
+	font-size: 0.8rem;
 	color: var(--byline-color);
 }
