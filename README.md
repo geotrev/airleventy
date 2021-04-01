@@ -50,6 +50,6 @@ Now each time you push to your deploy branch you'll also deploy your most recent
 
 Adding JS is pretty straightforward, but has prescriptions on file structure & naming:
 
--   All scripts are processed through rollup with a basic Babel configuration using `preset-env`. Configure this and the accompanying `.browserslistrc` as you please.
--   Any file _with_ an underscore prefix is treated as a non-asset module, and isn't copied over as part of the file output.
--   Any file _without_ an underscore is conversely treated as an asset file and copied over as an asset, including its original file path under `assets/js/`.
+-   All JS is processed through rollup with a basic Babel configuration using `preset-env`. Configure this and the accompanying `.browserslistrc` as you please.
+-   Any JS file _without_ an underscore prefix is treated as an asset (included in file output). Its file path is mirrored in the output.
+-   Any JS file _with_ an underscore prefix is treated as a non-asset module (no output file).
